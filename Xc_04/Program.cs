@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+//using System.Collections.Generic;
+//using System.Text;
 
 namespace Xc_04
 {
-    class Elephant
+    class Gajah
     {
 
         public int EarSize;
@@ -16,58 +16,40 @@ namespace Xc_04
             Console.WriteLine("My ears are " + EarSize + " inches tall.");
         }
 
-        public void HearMessage(string message, Elephant whoSaidIt)
-        {
-            Console.WriteLine(Name + " heard a message");
-            Console.WriteLine(whoSaidIt.Name + " said this: " + message);
-        }
-
-        public void SpeakTo(Elephant whoToTalkTo, string message)
-        {
-            whoToTalkTo.HearMessage(message, this);
-        }
+ 
     }
 
     class Program
     {
         static void Main(string[] args)
         {
-            Elephant lucinda = new Elephant() { Name = "Lucinda", EarSize = 33 };
-            Elephant lloyd = new Elephant() { Name = "Lloyd", EarSize = 40 };
+            Gajah g1 = new Gajah() { Name = "Jacinda", EarSize = 33 };
+            Gajah g2 = new Gajah() { Name = "Trudo", EarSize = 40 };
 
-            Console.WriteLine("Press 1 for Lloyd, 2 for Lucinda, 3 to swap");
+            Console.WriteLine("Press 1 for g1, 2 for g2, 3 to swap");
             while (true)
             {
                 char input = Console.ReadKey(true).KeyChar;
                 Console.WriteLine("You pressed " + input);
                 if (input == '1')
                 {
-                    Console.WriteLine("Calling lloyd.WhoAmI()");
-                    lloyd.WhoAmI();
+                    Console.WriteLine("Calling g1.WhoAmI()");
+                    g1.WhoAmI();
                 }
                 else if (input == '2')
                 {
-                    Console.WriteLine("Calling lucinda.WhoAmI()");
-                    lucinda.WhoAmI();
+                    Console.WriteLine("Calling g2.WhoAmI()");
+                    g2.WhoAmI();
                 }
                 else if (input == '3')
                 {
-                    Elephant holder;
-                    holder = lloyd;
-                    lloyd = lucinda;
-                    lucinda = holder;
+                    Gajah temp = g1;
+                   // holder = lloyd;
+                    g1 = g2;
+                    g2 = temp;
                     Console.WriteLine("References have been swapped");
                 }
-                else if (input == '4')
-                {
-                    lloyd = lucinda;
-                    lloyd.EarSize = 4321;
-                    lloyd.WhoAmI();
-                }
-                else if (input == '5')
-                {
-                    lucinda.SpeakTo(lloyd, "Hi, Lloyd!");
-                }
+                
                 else return;
                 Console.WriteLine();
             }
